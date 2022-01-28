@@ -9,17 +9,25 @@
     <title>Document</title>
 </head>
 
-<body onload="initGame()">
+<body oncontextmenu="return false;" onload="initGame()">
 
-    <h1></h1>
-    <table class="center">
-        <tbody class="game-board"></tbody>
-    </table>
-    <div class="difficult">
-        <button class="easy" onclick="createDifficult()">Easy</button>
-        <button class="medium" onclick="createDifficult()">Medium</button>
-        <button class="expert" onclick="createDifficult()">Expert</button>
+    <div class="modal">
+        <div class="difficult">
+            <h1 class="start-stop">Time:</h1>
+            <button id="easy"" onclick=" initGame(id)">Easy</button>
+            <button id="medium" onclick="initGame(id)">Medium</button>
+            <button id="expert" onclick="initGame(id)">Expert</button>
+        </div>
     </div>
+    <h1></h1>
+
+    <div class="pad">
+        <table class="center">
+            <tbody class="game-board"></tbody>
+        </table>
+    </div>
+
+
     <script src="js/util.js"></script>
     <script src="js/main.js"></script>
 </body>

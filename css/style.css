@@ -1,19 +1,55 @@
+.modal {
+    display: block;
+    background-color: aqua;
+    height: 150px;
+    width: 1000px;
+    padding: 10px;
+    margin-left: 100px;
+    border-radius: 15px;
+}
 
 body {
-    background-color: white;
+    background-color: rgb(10, 1, 1);
     color: black;
 
 }
 
+.center {
+    height: 465px;
+    width: 465px;
+}
+
+
+.pad {
+    margin-top: 50px;
+    padding: 5px;
+    display: inline-block;
+    margin-left: 375px;
+
+
+    box-shadow: 5px 5px 15px 5px #ff8080, -9px 5px 15px 5px #ffe488, -7px -5px 15px 5px #8cff85, 12px -5px 15px 5px #80c7ff, 12px 10px 15px 7px #e488ff, -10px 10px 15px 7px #ff616b, -10px -7px 27px 1px #8e5cff, 5px 5px 0px -5px rgb(0 0 0 / 0%);
+    text-align: center;
+}
+
+.cell:hover {
+    background-color: dimgray;
+}
+
+.start-stop {
+    margin-left: 15px;
+}
+
 .cell {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     text-align: center;
     font-size: 1.5em;
-    
+    padding: 1px;
+    cursor: pointer;
+
+
 }
 
 td {
     background-color: lightgray;
-
 }

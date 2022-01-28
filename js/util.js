@@ -1,5 +1,7 @@
 'use strict'
 
+var gWatchInterval;
+var gStartTime;
 
 function createMat(ROWS, COLS) {
     var mat = []
@@ -24,20 +26,15 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// function getDefaultGameObj() {
-//     return {
-//         foodOnBoard: 0,
-//         score: 0,
-//         isOn: false
-//     }
-// }
 
 function checkWinLose(isWin) {
-    document.querySelector('.modal').style.display = 'block';
-    document.querySelector('.renew').style.display = 'block';
-    var elH1Msg = document.querySelector('.msg');
-    var msg = (isWin) ? 'VICTORY!!!' : 'YOU LOSE!';
-    elH1Msg.innerText = msg
+    if (isWin) {
+        console.log('Victory');
+    } else {
+        console.log('GameOver');
+    }
+    gGame.isOn = false;
+    endStopWatch();
 }
 
 function toggleGame(elBtn) {
@@ -50,25 +47,21 @@ function toggleGame(elBtn) {
         gGameInterval = setInterval(play, GAME_FREQ);
         elBtn.innerText = 'Pause';
     }
-
 }
 
-// count negs
-// function countFoodAround(mat, rowIdx, colIdx) {
-//     var count = 0
-//     for (var i = rowIdx - 1; i <= rowIdx + 1; i++) {
-//         if (i < 0 || i > mat.length - 1) continue
-//         for (var j = colIdx - 1; j <= colIdx + 1; j++) {
-//             if (j < 0 || j > mat[0].length - 1) continue
-//             if (i === rowIdx && j === colIdx) continue
-//             var currCell = mat[i][j]
-//             if (currCell === '$') count++
-//         }
-//     }
-//     return count
-// }
+function startStopWatch() {
+    gWatchInterval = setInterval(updateWatch, 1);
+    gStartTime = Date.now();
+}
 
-// function startStopWatch() {
-//     gWatchInterval = setInterval(updateWatch, 1)
-//     gStartTime = Date.now()
-// }
+function updateWatch() {
+    var now = Date.now()
+    var time = ((now - gStartTime) / 1000).toFixed(3)
+    var elTime = document.querySelector('.start-stop')
+    elTime.innerHTML = time;
+}
+
+function endStopWatch() {
+    clearInterval(gWatchInterval)
+    gWatchInterval = null;
+}
