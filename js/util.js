@@ -50,6 +50,9 @@ function resetGame() {
     endStopWatch();
     initGame();
     gIsFirstClick = true;
+    var elH1Msg = document.querySelector('.msg');
+    var msg = ''
+    elH1Msg.innerText = msg;
     var elSpanSmile = document.querySelector('.smile');
     if (!elSpanSmile.classList.contains('.choose-lvl')) {
         // elSpanSmile.classList.add('.choose-lvl')
