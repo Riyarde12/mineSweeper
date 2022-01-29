@@ -1,24 +1,18 @@
-'use strict'
+'use strict';
 
 var gWatchInterval;
 var gStartTime;
 
 function createMat(ROWS, COLS) {
-    var mat = []
+    var mat = [];
     for (var i = 0; i < ROWS; i++) {
-        var row = []
+        var row = [];
         for (var j = 0; j < COLS; j++) {
-            row.push('')
+            row.push('');
         }
-        mat.push(row)
+        mat.push(row);
     }
     return mat
-}
-
-// Select the elCell and set the value
-function renderCell(location, value) {
-    var elCell = document.querySelector(`.cell-${location.i}-${location.j}`);
-    elCell.innerHTML = value;
 }
 
 // get an random number max inclusive
@@ -26,27 +20,13 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
 function checkWinLose(isWin) {
-    if (isWin) {
-        console.log('Victory');
-    } else {
-        console.log('GameOver');
-    }
+    var elH1Msg = document.querySelector('.msg');
+    var msg = (isWin) ? 'VICTORY!!!' : 'YOU LOSE!';
+    elH1Msg.innerText = msg;
     gGame.isOn = false;
+    if (!isWin) smileDead()
     endStopWatch();
-}
-
-function toggleGame(elBtn) {
-    // console.log('gGameInterval', gGameInterval)
-    if (gGameInterval) {
-        clearInterval(gGameInterval)
-        gGameInterval = null;
-        elBtn.innerText = 'Start';
-    } else {
-        gGameInterval = setInterval(play, GAME_FREQ);
-        elBtn.innerText = 'Pause';
-    }
 }
 
 function startStopWatch() {
@@ -55,13 +35,37 @@ function startStopWatch() {
 }
 
 function updateWatch() {
-    var now = Date.now()
-    var time = ((now - gStartTime) / 1000).toFixed(3)
-    var elTime = document.querySelector('.start-stop')
-    elTime.innerHTML = time;
+    var now = Date.now();
+    var time = ((now - gStartTime) / 1000).toFixed(3);
+    var elTime = document.querySelector('.start-stop');
+    elTime.innerHTML = `Time: ${time}`;
 }
 
 function endStopWatch() {
-    clearInterval(gWatchInterval)
+    clearInterval(gWatchInterval);
     gWatchInterval = null;
+}
+
+function resetGame() {
+    endStopWatch();
+    initGame();
+    gIsFirstClick = true;
+    var elSpanSmile = document.querySelector('.smile');
+    if (!elSpanSmile.classList.contains('.choose-lvl')) {
+        // elSpanSmile.classList.add('.choose-lvl')
+        elSpanSmile.innerHTML = 'Choose Your Level';
+    }
+    gLevel = {
+        size: 4,
+        mines: 2,
+        life: 0
+    };
+
+    gGame = {
+        isOn: false,
+        shownCount: 0,
+        markedCount: 0,
+        hints: 0
+    };
+    showCountToUser();
 }

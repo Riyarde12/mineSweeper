@@ -12,14 +12,33 @@
 <body oncontextmenu="return false;" onload="initGame()">
 
     <div class="modal">
-        <div class="difficult">
-            <h1 class="start-stop">Time:</h1>
-            <button id="easy"" onclick=" initGame(id)">Easy</button>
-            <button id="medium" onclick="initGame(id)">Medium</button>
-            <button id="expert" onclick="initGame(id)">Expert</button>
+        <div class="win-lose-msg">
+            <h3 class="msg"></h3>
         </div>
+
+
+
+        <div class="status">
+            <!-- <h1 class="time">Time:</h1> -->
+
+            <h1 class="start-stop">Time:</h1>
+        </div>
+        <h3><span class="smile" onclick="resetGame()"></span></h3>
     </div>
-    <h1></h1>
+    </div>
+    <div>
+
+    </div>
+    <div class="difficult">
+        <!-- <h3><span class="smile"></span></h3> -->
+
+        <button id="easy"" onclick=" chooseLevel(id)">Easy</button>
+        <button id="medium" onclick="chooseLevel(id)">Medium</button>
+        <button id="expert" onclick="chooseLevel(id)">Expert</button>
+        <!-- <h3><span class="smile"></span></h3> -->
+        <h3>life:</h3>
+        <h3 class="showen-count">Steps:</h3>
+    </div>
 
     <div class="pad">
         <table class="center">
@@ -27,8 +46,12 @@
         </table>
     </div>
 
-
+    <div class="footer">
+        <p>&copy; Yarden Rishoni</p>
+    </div>
+    <footer>Yarden Rishoni</footer>
     <script src="js/util.js"></script>
+    <script src="js/features.js"></script>
     <script src="js/main.js"></script>
 </body>
 

@@ -1,17 +1,115 @@
 .modal {
     display: block;
-    background-color: aqua;
-    height: 150px;
-    width: 1000px;
+    background-color: rgba(100, 13, 10, 0.596);
+    height: 110px;
+    width: 600px;
     padding: 10px;
-    margin-left: 100px;
+    margin-left: 430px;
     border-radius: 15px;
+    box-shadow: 5px 5px 5px 0px #000000,
+        inset 4px 4px 15px 0px #000000,
+        4px 1px 29px 5px #941B1B;
+}
+
+.msg {
+    margin-top: auto;
+}
+
+.win-lose-msg {
+    color: #FFFFFF;
+    text-shadow: 0 -1px 4px #FFF,
+        0 -2px 10px #ff0,
+        0 -10px 20px #ff8000,
+        0 -18px 40px #F00;
+    font-family: Georgia,
+        serif;
+    font-size: 26px;
+    letter-spacing: -3px;
+    word-spacing: -2.8px;
+    color: #000000;
+    font-weight: 30;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: capitalize;
+}
+
+.difficult {
+    text-align: center;
+    text-align: center;
+    margin-top: 25px;
+    color: aliceblue;
+    margin-right: 5px;
+    /* margin-left: 50px; */
+}
+
+.difficult h3 {
+    margin-left: 15px;
+    margin: auto;
+}
+
+#easy {
+    border-width: 7px;
+    border-style: outset;
+    color: #FFFFFF;
+    background: #333333;
+    text-shadow: 0 -1px 4px #FFF,
+        0 -2px 10px #ff0,
+        0 -10px 20px #ff8000,
+        0 -18px 40px #F00;
+    border-radius: 37px;
+    cursor: pointer;
+    margin-right: 2px;
+}
+
+#medium {
+    border-width: 7px;
+    border-style: outset;
+    color: #FFFFFF;
+    background: #333333;
+    text-shadow: 0 -1px 4px #FFF,
+        0 -2px 10px #ff0,
+        0 -10px 20px #ff8000,
+        0 -18px 40px #F00;
+    border-radius: 37px;
+    cursor: pointer;
+}
+
+#expert {
+    border-width: 7px;
+    border-style: outset;
+    color: #FFFFFF;
+    background: #333333;
+    text-shadow: 0 -1px 4px #FFF,
+        0 -2px 10px #ff0,
+        0 -10px 20px #ff8000,
+        0 -18px 40px #F00;
+    border-radius: 37px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.status {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.smile {
+    text-align: center;
+    margin-left: 200px;
+    height: 50px;
+    width: 50px;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 4px #FFF,
+        0 -2px 10px #ff0,
+        0 -10px 20px #ff8000,
+        0 -18px 40px #F00;
+    cursor: pointer;
 }
 
 body {
     background-color: rgb(10, 1, 1);
     color: black;
-
 }
 
 .center {
@@ -21,13 +119,29 @@ body {
 
 
 .pad {
-    margin-top: 50px;
+    margin-top: 35px;
     padding: 5px;
     display: inline-block;
-    margin-left: 375px;
+    margin-left: 490px;
+    margin-bottom: 50px;
+    box-shadow: 5px 5px 15px 5px #9D0707,
+        5px 5px 15px 5px #000000,
+        5px 5px 15px 5px #B70808,
+        5px 5px 15px 5px #510404,
+        -8px 9px 50px 24px #510404;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
+}
 
+h3 {
+    display: inline-block;
+    margin-bottom: 10px
+}
 
-    box-shadow: 5px 5px 15px 5px #ff8080, -9px 5px 15px 5px #ffe488, -7px -5px 15px 5px #8cff85, 12px -5px 15px 5px #80c7ff, 12px 10px 15px 7px #e488ff, -10px 10px 15px 7px #ff616b, -10px -7px 27px 1px #8e5cff, 5px 5px 0px -5px rgb(0 0 0 / 0%);
+.win-lose-msg {
+    display: block;
+    /* display: inline-block; */
     text-align: center;
 }
 
@@ -35,21 +149,50 @@ body {
     background-color: dimgray;
 }
 
+/* .choose-lvl{
+    color: rgba(0, 0, 0, .6);
+    background: #6e6e6e;
+    text-shadow: 3px 2px 3px rgba(255, 255, 255, .2);
+} */
+
+.cell-clicked {
+    display: none;
+    background-color: rgb(92, 89, 89);
+}
+
 .start-stop {
     margin-left: 15px;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 4px #FFF,
+        0 -2px 10px #ff0,
+        0 -10px 20px #ff8000,
+        0 -18px 40px #F00;
 }
 
 .cell {
+    /* display: none; */
     width: 35px;
     height: 35px;
     text-align: center;
     font-size: 1.5em;
     padding: 1px;
     cursor: pointer;
-
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
 
 }
 
 td {
     background-color: lightgray;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #5c02080a;
+    color: aliceblue;
+    text-align: center;
 }
